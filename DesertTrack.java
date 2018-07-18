@@ -28,7 +28,7 @@ public class DesertTrack extends Track
   // sets the current position so the character can move
    public void setCurrent(int distance)
    {
-      current = current + distance;
+      current += distance;
    }
    // sets the character to the next position and displays the progress
    public void nextPos()
