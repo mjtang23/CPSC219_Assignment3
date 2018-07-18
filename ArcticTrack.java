@@ -64,7 +64,7 @@ public class ArcticTrack extends Track
      int snow;
      Random generator = new Random();
      snow = generator.nextInt(10)+1;
-     if(snow == 2)
+     if(snow == 1)
      {
         System.out.println("Oh dear, you ran into a blizzard...");
         storm = true;

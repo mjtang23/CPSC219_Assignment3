@@ -89,7 +89,7 @@ public class GameController
                   SUVfuel = in.nextInt();
                   cold.setSUVFuel(SUVfuel);
                   System.out.println("SUV fuel set to:" + SUVfuel);
-                  pass = true;
+                  
                   break;
          case 3:  System.out.print("Change the location of Sports car to (from 0-24):");
                   SportsPos = in.nextInt();
@@ -132,19 +132,19 @@ public class GameController
          case 1:  System.out.println("AWD activated!");
                   cold.AWDchoice(true);
                   cold.arcticTrack();
-                  pass = true;
                   break;
          case 2:  cold.AWDchoice(false);
                   cold.arcticTrack();
-                  pass = true;
                   break;
-         case 3:  done = true;
-                  pass = true;
-                  System.out.println("You've quit the game. Thanks for playing!");
+				  
+         case 3:  System.out.println("You've quit the game. Thanks for playing!");
                   System.out.println("It's a tie!!");
-                  break;
+				  System.exit(0);
+                  
          case 4:  System.out.println("The Cheat Menu:");
-                  pass = true;
+                  CheatMenu();
+                  CheatCheck();
+				  SUVmenu();
                   break;
 
          default: System.out.print("You choice is invalid... Try again:");
@@ -156,15 +156,15 @@ public class GameController
    {
      switch (choice){
          case 1:  hot.desertTrack();
-                  pass = true;
                   break;
          case 2:  System.out.println("You've just quit. Thanks for playing!");
                   System.out.println("It's a tie");
-                  pass = true;
-                  done = true;
-                  break;
+                  System.exit(0);
+                  
          case 3:  System.out.println("The Cheat Menu:");
-                  pass = true;
+                  CheatMenu();
+				  CheatCheck();
+				  CARmenu();
                   break;
          default: System.out.print("You choice is invalid... Try again:");
                   choice = in.nextInt();
@@ -179,7 +179,7 @@ public class GameController
       hot.startPos();
       cold.startPos();
     
-     
+     //loops until fuel is gone, or one of the vehicles reaches the end
       while(done == false)
       {
                
@@ -196,57 +196,16 @@ public class GameController
               break;
             }
 
-           pass = false;
            SUVmenu();
-           
-           
-           while(pass == false)
-           {
-             CheckSUV();
-           }
-           pass = false;
-           if(choice == 4)
-            {
-               while(pass == false)
-                {
-                 CheatMenu();
-                 CheatCheck();
-                }
-            } 
-              
-
-           if(choice == 3)
-           {
-              break;
-           }
-            
-           
-           pass = false;  
-
+           CheckSUV();
            CARmenu();
-           while(pass == false)
-           {
-              CheckCAR();
-           }
-           
+           CheckCAR();
 
-           if(choice == 2)
-           {
-              break;
-           }
-           pass = false;
-           if(choice == 3)
-            {
-              while(pass == false)
-                {
-                 CheatMenu();
-                 CheatCheck();
-                }
-            }
            if(cold.CheckEmpty() == true)
            {
               System.out.println("SUV all out of fuel!!");
               System.out.println("Sport's Car Wins!!"); 
+			  done = true;
               break; 
            }
  
@@ -254,6 +213,7 @@ public class GameController
            {
               System.out.println("Sports car all out of fuel!!");
               System.out.println("SUV Wins!!!");
+			  done = true;
               break;
            }
            cold.nextPos();
