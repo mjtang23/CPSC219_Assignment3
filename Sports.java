@@ -12,25 +12,32 @@ public class Sports extends Car
         setFuel (30); 
        
     }
+	
+	int move(int choice){
+		
+		if(choice ==1){
+			//move when heatwave occurs
+			setFuel (getFuel() - heatConsume);
+			moveOutput(heatConsume);
+		}else{
+			//movement with no heatwave
+			setFuel (getFuel() - CONSUMPTION_RATE);
+			moveOutput(CONSUMPTION_RATE);
+		}
+		
+		return 3;
+		
+	}
    // returns the value it needs to move when a heatwave occurs
-   public int SportsMove1()
+   public void moveOutput(int consume)
     {
-       setFuel (getFuel() - heatConsume);
+       
        System.out.println("Current fuel: " + getFuel());
-       System.out.println("Fuel use: " + heatConsume);
+       System.out.println("Fuel use: " + consume);
        System.out.println("Distance traveled: " + 3);
-       return 3;
+     
     }
-   // returns the value it needs to move when the no heatwave occurs
-   public int SportsMove2()
-    {
-      setFuel (getFuel() - 2);
-      System.out.println("Current fuel: " + getFuel());
-      System.out.println("Fuel use: " + 2);
-      System.out.println("Distance traveled: " + 3);
-      return 3;
-
-    }
+   
   
 
 }

@@ -7,15 +7,17 @@ public class SUV extends Car
    
    private int count = 0;
    private boolean AWD = false;
-   private final int AWDconsume = 3;
+   private final int SUVconsume = 3;
    private int AWDmove = 0;
    private int fuel;
+   
    public SUV()
    {
       setAppearance('V'); 
       setFuel (50);
          
    }
+   
   // Switches AWD on and off when it takes in the value.
   public void AWDswitch(boolean choice)
   {
@@ -32,32 +34,27 @@ public class SUV extends Car
   {
     return AWD;
   }
- // How much the SUV should move when the vehicle is in a blizzard and AWD is on
- public int AWDmove1()
+  
+
+  int move(int choice)
    {
-     setFuel (getFuel() - AWDconsume);
+	   int move = 0;
+	   if(choice == 1){
+		    // How much the SUV should move and consume when the vehicle is in a blizzard and AWD is on
+			move = 1;
+	   }else if(choice == 2){
+		     // How much the SUV should move and consume when AWD is off, and blizzard is on
+			move = 0;
+	   }else{
+		    // How much the vehicle should move and consume when the AWD is on/off and the blizzard is off
+			move = STANDARD_DISTANCE;
+	   }
+     setFuel (getFuel() - SUVconsume);
      System.out.println("Current fuel: " + getFuel());
-     System.out.println("Fuel use: " + AWDconsume);
-     System.out.println("Distance traveled: " + 1);
-     return 1;
+     System.out.println("Fuel use: " + SUVconsume);
+     System.out.println("Distance traveled: " + move);
+     return move;
    }
-  // How much the SUV should move when AWD is off, and blizzard is on
-  public int AWDmove2()
-   {
-     setFuel (getFuel() - AWDconsume);
-     System.out.println("Current fuel: " + getFuel());
-     System.out.println("Fuel use: " + AWDconsume);
-     System.out.println("Distance traveled: " + 0);
-     return 0;
-   }
-   // How much the vehicle should move when the AWD is on and the blizzard is off
-   public int AWDmove3()
-   {
-     setFuel (getFuel() - AWDconsume);
-     System.out.println("Current fuel: " + getFuel());
-     System.out.println("Fuel use: " + AWDconsume);
-     System.out.println("Distance traveled: " + 2);
-     return 2;
-   }
+  
   
 }

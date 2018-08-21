@@ -19,7 +19,7 @@ public class GameController
       DesertTrack hot = new DesertTrack();
       ArcticTrack cold = new ArcticTrack();
       Debug cheat = new Debug();
-      Car test = new Car();
+   
       
    // Displays the options for the SUV
    public void SUVmenu()
@@ -44,7 +44,7 @@ public class GameController
       choice = in.nextInt();
    }  
    // Displays the options for the cheats
-   public void CheatMenu()
+   public int CheatMenu()
    {
       System.out.println("\t (0) debugging messages on/off");
       System.out.println("\t (1) change fuel of sports car");
@@ -54,8 +54,8 @@ public class GameController
       System.out.println("\t (5) make a blizzard!");
       System.out.println("\t (6) make a heatwave!");
       System.out.print("Enter choice:");
-      choice2 = in.nextInt();
-      
+      int choice = in.nextInt();
+      return choice;
    }
    // Displays the description of the game
    public void Instruct()
@@ -63,9 +63,9 @@ public class GameController
       System.out.println("Here's the game.You're the SUV in the Arctic track with the character V. You will be racing against the Sports car that will be one space faster than you. On the bright side, the Sports car can run out of fuel before you, especially if it gets in a heatwave. On the other hand, there is a random chance that you'll run into a blizzard. If you're not in AWD, then you'll not move at all and basically loose a turn. There is a cheat menu if you need to tweak a few settings, but otherwise LET THE RACE BEGIN!!");
     }
    // Checks to see if value put for the cheat menu is valid
-   public void CheatCheck()
+   public void CheatCheck(int choice)
     {
-      switch (choice2){
+      switch (choice){
          case 0:  if(Debug.on == false)
                    {
                      System.out.println("Debug on!!");
@@ -77,13 +77,13 @@ public class GameController
                      System.out.println("Debug off");
                      Debug.on = false;
                    }  
-                  pass = true;
+                  
                   break;
          case 1:  System.out.print("Change Sports car fuel to:");
                   sportsFuel = in.nextInt();
                   hot.setSportFuel(sportsFuel);
                   System.out.println("Sports fuel set to:" + sportsFuel);
-                  pass = true;
+                  
                   break;
          case 2:  System.out.print("Change SUV fuel to:");
                   SUVfuel = in.nextInt();
@@ -100,7 +100,7 @@ public class GameController
                      }
                   hot.setCurrent(SportsPos);
                   System.out.println("Sports car now in position:" + SportsPos);
-                  pass = true;
+                  
                   break;
          case 4:  System.out.print("Change the location of SUV car to (from 0-24):");
                   SUVpos = in.nextInt();
@@ -111,13 +111,16 @@ public class GameController
                      }
                   cold.setCurrent(SUVpos);
                   System.out.println("Sports car now in position:" + SUVpos);
-                  pass = true;
+                
                   break;
-         case 5:  System.out.println("Run Settings for Blizzard on that turn");
-                  pass = true;
+         case 5:  System.out.println("Blizzard settings turned on");
+                  cold.setStorm();
+				
+				  //SUVmenu();
                   break;
          case 6:  System.out.println("Run Settings for HeatWave");
-                  pass = true;
+                  hot.setHeatwave();
+				  //CARmenu();
                   break; 
 
          default: System.out.print("You choice is invalid... Try again:");
@@ -142,9 +145,9 @@ public class GameController
 				  System.exit(0);
                   
          case 4:  System.out.println("The Cheat Menu:");
-                  CheatMenu();
-                  CheatCheck();
+                  CheatCheck(CheatMenu());
 				  SUVmenu();
+				  CheckSUV();
                   break;
 
          default: System.out.print("You choice is invalid... Try again:");
@@ -161,10 +164,10 @@ public class GameController
                   System.out.println("It's a tie");
                   System.exit(0);
                   
-         case 3:  System.out.println("The Cheat Menu:");
-                  CheatMenu();
-				  CheatCheck();
+         case 3:  System.out.println("The Cheat Menu:");                 
+				  CheatCheck(CheatMenu());
 				  CARmenu();
+				  CheckCAR();
                   break;
          default: System.out.print("You choice is invalid... Try again:");
                   choice = in.nextInt();

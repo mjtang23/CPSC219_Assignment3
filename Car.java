@@ -8,7 +8,7 @@
 
  */
 
-public class Car
+public abstract class Car
 {
     public static final int STARTING_FUEL = 40;
     public static final int STANDARD_DISTANCE = 2;
@@ -19,8 +19,8 @@ public class Car
 
     public Car()
     {
-	setAppearance('c');
-	fuel = STARTING_FUEL;
+	   setAppearance('c');
+	   fuel = STARTING_FUEL;
     }
 
     // As the car moves, this class or child classes can specify for that type of car
@@ -54,15 +54,8 @@ public class Car
 
     // If this method is overriden then all child class methods must also display
     // the same debugging messages shown below.
-    public int move ()
-    {
-	consumeFuel(CONSUMPTION_RATE);
-	System.out.println("Current fuel: " + fuel);
-	System.out.println("Fuel use: " + CONSUMPTION_RATE);
-	//System.out.println("Distance traveled: " + STANDARD_DISTANCE);
-	return STANDARD_DISTANCE;
-    }
-
+    abstract int move (int choice);
+   
     public void setAppearance (char anAppearance)
     {
 	appearance = anAppearance;

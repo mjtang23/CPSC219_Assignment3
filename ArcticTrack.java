@@ -23,6 +23,10 @@ public class ArcticTrack extends Track
      title();
      display();
    }
+   
+   protected void setStorm(){
+	   storm = true;
+   }
   // starts character at starting position
    public void startPos()
    {
@@ -49,7 +53,10 @@ public class ArcticTrack extends Track
      arctic = getTrack();
      previous = current;
      arctic[previous] = null;
-     Blizzard();
+	 if(storm == false){
+		 Blizzard();
+	 }
+     
      StormCheck(); 
      
    }
@@ -64,9 +71,8 @@ public class ArcticTrack extends Track
      int snow;
      Random generator = new Random();
      snow = generator.nextInt(10)+1;
-     if(snow == 1)
+     if(snow == 3)
      {
-        System.out.println("Oh dear, you ran into a blizzard...");
         storm = true;
      }
      else
@@ -78,17 +84,18 @@ public class ArcticTrack extends Track
   // Checks to see what the move should be based on AWD mode and Blizzard condition
   public void StormCheck()
   {
-     if(user.getAWD() == true && storm == true)
-        setCurrent(user.AWDmove1()); 
-       
-     else if(user.getAWD() == false && storm == true)
-         setCurrent(user.AWDmove2());
+     if(user.getAWD() == true && storm == true){
+		 System.out.println("Oh dear, you ran into a blizzard...");
+        setCurrent(user.move(1)); 
+	 }
+     else if(user.getAWD() == false && storm == true){
+		 System.out.println("Oh dear, you ran into a blizzard...");
+         setCurrent(user.move(2));
+	 }
+     else{
+          setCurrent(user.move(3));
+     }
 
-     else if(user.getAWD() == true && storm == false)  
-          setCurrent(user.AWDmove3());
-     
-     else 
-       setCurrent(user.AWDmove3());
   }
 
   // returns the current number

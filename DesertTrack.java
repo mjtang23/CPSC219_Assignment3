@@ -5,10 +5,10 @@ import java.util.Random;
 // properties of the DesertTrack
 public class DesertTrack extends Track
 {
-   Sports CPU = new Sports();
+   Car CPU = new Sports();
    private int current = 0;
    private int previous; 
-   private boolean heatWave;
+   private boolean heatWave= false;
    private Car [] desert;
    
    
@@ -24,6 +24,10 @@ public class DesertTrack extends Track
      setLocation(CPU,0);
      title();
      display();
+   }
+   
+   protected void setHeatwave(){
+	   heatWave = true;
    }
   // sets the current position so the character can move
    public void setCurrent(int distance)
@@ -61,12 +65,8 @@ public class DesertTrack extends Track
      heat = generator.nextInt(10)+1;
      if(heat == 3)
      {
-        System.out.println("Heat wave!!");
+        System.out.println("Heat wave!!!!!!");
         heatWave = true;
-     }
-     else
-     {
-       heatWave = false;
      }
 	 
   }
@@ -74,10 +74,10 @@ public class DesertTrack extends Track
   public void HeatWaveCheck()
     { 
       if(heatWave == true)
-        setCurrent(CPU.SportsMove1());
+        setCurrent(CPU.move(1));
 
       else 
-        setCurrent(CPU.SportsMove2());
+        setCurrent(CPU.move(2));
     }
   // returns the current integer
   public int getCurrent()

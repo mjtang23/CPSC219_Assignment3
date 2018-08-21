@@ -12,17 +12,16 @@
 public class Track
 {
     public static final int SIZE = 25;
-
     private Car [] aTrack;
 
 
     // Create the track and initialize all elements to sensible default values.
     public Track()
     {
-	int c;
-	aTrack = new Car[SIZE];
-	for (c = 0; c < SIZE; c++)
+	  aTrack = new Car[SIZE];
+	  for (int c = 0; c < SIZE; c++){
 	    aTrack[c] = null;
+	  }
     }
 
     // Displays the track with a numbered grid around element element.
