@@ -53,9 +53,13 @@ public class DesertTrack extends Track
      desert = getTrack();
      previous = current;
      desert[previous] = null;
-     HeatWave();
+	 if(heatWave == false){
+		HeatWave();
+		 
+	 }
+     
      HeatWaveCheck();
-   
+	 heatWave = false;
    }
    // Generates a heatwave
    public void HeatWave()
@@ -65,7 +69,7 @@ public class DesertTrack extends Track
      heat = generator.nextInt(10)+1;
      if(heat == 3)
      {
-        System.out.println("Heat wave!!!!!!");
+       
         heatWave = true;
      }
 	 
@@ -73,11 +77,12 @@ public class DesertTrack extends Track
   // Checks to see if heatwave is on, and set the consumption rate if it applies
   public void HeatWaveCheck()
     { 
-      if(heatWave == true)
+      if(heatWave == true){
+		System.out.println("Heat wave!!!!!!");
         setCurrent(CPU.move(1));
-
-      else 
+	  }else{
         setCurrent(CPU.move(2));
+	  }
     }
   // returns the current integer
   public int getCurrent()

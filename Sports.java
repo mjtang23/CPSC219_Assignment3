@@ -15,7 +15,7 @@ public class Sports extends Car
 	
 	int move(int choice){
 		
-		if(choice ==1){
+		if(choice == 1){
 			//move when heatwave occurs
 			setFuel (getFuel() - heatConsume);
 			moveOutput(heatConsume);

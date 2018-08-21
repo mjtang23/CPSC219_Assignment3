@@ -58,7 +58,7 @@ public class ArcticTrack extends Track
 	 }
      
      StormCheck(); 
-     
+     storm = false;
    }
    // For the Arctic class to change the AWD mode
    public void AWDchoice(boolean temp)
