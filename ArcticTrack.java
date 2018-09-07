@@ -1,10 +1,11 @@
 /* Marcus Tang 10086730 March 27th, 2015
-This is a child class of the Track class. It has the exact same properties, but it contains an SUV vehicle, and blizzard conditions. It tracks the movement of the SUV, but it doesn't contain the properties of the SUV. Therefore, it must call the SUV to see how much the SUV should move on the track. ActicTrack only tracks the movement, not the consumption of fuel the SUV consumes.
+This is a child class of the Track class. Takes in a SUV, a child class of the Car class, and positions the SUV in the array based on certain situations.
 */
 import java.util.Random;
 // Properties of the class 
 public class ArcticTrack extends Track
 {
+   CarFactory factory = new CarFactory();
    SUV user = new SUV();
    private int current = 0;
    private int previous;
@@ -12,15 +13,11 @@ public class ArcticTrack extends Track
    private Car [] arctic;
    private boolean storm = false;
    
-   // displays just the title of track
-   public void title()
-   {
-      System.out.println("Arctic Track");      
-   }
+
    // displays the graphical output of game
    public void show()
    {
-     title();
+     title("Arctic Track");
      display();
    }
    
@@ -37,7 +34,7 @@ public class ArcticTrack extends Track
    public void nextPos()
    {
      setLocation(user,current);
-     title();
+     title("Arctic Track");
      display();
    }
    // changes what current should be for next round, depending on choice

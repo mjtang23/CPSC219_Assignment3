@@ -1,5 +1,5 @@
 /*
-  Author:  James Tam
+  Author:  James Tam(CPSC 219 Prof)
   Version: April 1, 2013
 
   Features:
@@ -13,7 +13,6 @@ public abstract class Car
     public static final int STARTING_FUEL = 40;
     public static final int STANDARD_DISTANCE = 2;
     public static final int CONSUMPTION_RATE = 2;
-
     private char appearance;
     private int fuel;
 
@@ -24,7 +23,7 @@ public abstract class Car
     }
 
     // As the car moves, this class or child classes can specify for that type of car
-    // how much fuel to consume.
+    // How much fuel to consume.
     protected void consumeFuel(int amount)
     {
 	if (amount < 0)
@@ -55,6 +54,9 @@ public abstract class Car
     // If this method is overriden then all child class methods must also display
     // the same debugging messages shown below.
     abstract int move (int choice);
+	
+	//Returns the state of the AWD on vehicle
+	abstract boolean getAWD();
    
     public void setAppearance (char anAppearance)
     {

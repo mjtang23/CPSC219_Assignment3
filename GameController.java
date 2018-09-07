@@ -60,7 +60,7 @@ public class GameController
    // Displays the description of the game
    public void Instruct()
     {
-      System.out.println("Here's the game.You're the SUV in the Arctic track with the character V. You will be racing against the Sports car that will be one space faster than you. On the bright side, the Sports car can run out of fuel before you, especially if it gets in a heatwave. On the other hand, there is a random chance that you'll run into a blizzard. If you're not in AWD, then you'll not move at all and basically loose a turn. There is a cheat menu if you need to tweak a few settings, but otherwise LET THE RACE BEGIN!!");
+      System.out.println("Here's the game.You're the SUV in the Arctic track with the character V. You will be racing against the Sports car that will be one space faster than you. On the bright side, the Sports car can run out of fuel before you, especially if it gets in a heatwave. On the other hand, there is a random chance that you'll run into a blizzard. If you're not in AWD, then you'll not move at all and basically loose a turn. There is a cheat menu if you need to tweak a few settings, but otherwise LET THE RACE BEGIN!!\n");
     }
    // Checks to see if value put for the cheat menu is valid
    public void CheatCheck(int choice)

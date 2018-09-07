@@ -83,7 +83,13 @@ public class Track
 	System.out.println();
 
     }
-
+	
+	//Printing out the title of the track
+	protected void title(String title){
+		System.out.println(title);
+	}
+	
+	//Getter for returning the array for the track
     public Car []  getTrack ()
     {
 	return aTrack;

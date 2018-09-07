@@ -1,28 +1,24 @@
 /* Marcus Tang 10086730 March 27th, 2015
-This is another child class of the class Track. Again it only tracks the movement of the sports car, but doesn't keep track of the fuel consumed. This track has to call from the class Sports in order to get the correct moves on the track.
+This is another child class of the class Track. It takes in a Sports car object, a child of the Car class, and places it in the array based on certain conditions. 
 */
 import java.util.Random;
-// properties of the DesertTrack
+
+// properties of the DesertTrack. Also contains the properties of the Track class.
 public class DesertTrack extends Track
 {
-   Car CPU = new Sports();
+   CarFactory factory = new CarFactory();
+   Car CPU = factory.getCar("Sport");
    private int current = 0;
    private int previous; 
    private boolean heatWave= false;
    private Car [] desert;
    
-   
-  // Displays the track title
-   public void title()
-   {
-      System.out.println("Desert Track");
-   }
   // displays the track title
    public void startPos()
    {
      
      setLocation(CPU,0);
-     title();
+     title("Desert Track");
      display();
    }
    
@@ -38,7 +34,7 @@ public class DesertTrack extends Track
    public void nextPos()
    {
      setLocation(CPU,current);
-     title();
+     title("Desert Track");
      display();
    }
   // returns the array desert
