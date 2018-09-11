@@ -15,6 +15,7 @@ public abstract class Car
     public static final int CONSUMPTION_RATE = 2;
     private char appearance;
     private int fuel;
+    protected boolean AWD = false;
 
     public Car()
     {
@@ -57,12 +58,21 @@ public abstract class Car
 	
 	//Returns the state of the AWD on vehicle
 	abstract boolean getAWD();
-   
+	
+	//AWD setter. 
+		abstract void setAWD(boolean aWD);
+	
+	 public void AWDswitch(boolean choice){
+		  setAWD(false);
+	 }
+	 
+   //setter for appearance
     public void setAppearance (char anAppearance)
     {
 	appearance = anAppearance;
     }
-
+    
+    //fuel setter
     public void setFuel (int newFuel)
     {
 	if (fuel < 0)
@@ -77,4 +87,8 @@ public abstract class Car
 	s = s + appearance;
 	return s;
     }
+ 
+	
+    
+
 }

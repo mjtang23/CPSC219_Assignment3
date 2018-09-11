@@ -1,4 +1,4 @@
-/*Marcus Tang 10086730 March 27th, 2015
+/*Marcus Tang 10086730 Sept 11th, 2018
 This is a child class of Car. It has different fuel settings and consumption, but not capable of tracking it's own movement on the track. It returns the value it should move in certain situations. It also has th ablility to toggle AWD mode.
 */
 // properties of the SUV
@@ -6,7 +6,6 @@ public class SUV extends Car
 {
    
    private int count = 0;
-   private boolean AWD = false;
    private final int SUVconsume = 3;
    private int AWDmove = 0;
    private int fuel;
@@ -18,21 +17,26 @@ public class SUV extends Car
          
    }
    
+ //AWD setter. 
+ 	protected void setAWD(boolean aWD){
+ 		super.AWD = aWD;
+ 	}
+ 	
   // Switches AWD on and off when it takes in the value.
   public void AWDswitch(boolean choice)
   {
     if(choice == false)
-      AWD = false;
+      setAWD(false);
 
     else if(choice == true)
-      AWD = true;
+      setAWD(true);
   }
 
 
   // returns the state of the AWD
   public boolean getAWD()
   {
-    return AWD;
+    return super.AWD;
   }
   
 

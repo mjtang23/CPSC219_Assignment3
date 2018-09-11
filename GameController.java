@@ -1,4 +1,4 @@
-/* Marcus Tang 10086730 March 27th, 2015
+/* Marcus Tang 10086730 Sept 11th, 18
 This class controls all the classes that are called to make the game run. It allows the user to make choices during the game. The choices to make a move in the game, or even to access the cheat menu. it also displays the description of the game, and ends the game when the criteria meets. This program doesn't have the properties of the track or cars, but calls for them when they need to be in the game.The Cheat options dont work for setting up a blizzard or for a heatwave.
 */
 import java.util.Scanner;

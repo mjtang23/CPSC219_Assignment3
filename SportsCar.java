@@ -1,4 +1,4 @@
-/*Marcus Tang 10086730 March 27th, 2015
+/*Marcus Tang 10086730 Sept 18th, 2018
 This is a child class of Car. It has the ability to move 3 units by default, but only returns that value to the track. It has the property to track the fuel, but needs the Desert Class to call which method when a certain situation occurs.
 */
 // Properties of the car
@@ -43,6 +43,8 @@ public class SportsCar extends Car
      
     }
    
-  
+   protected void setAWD(boolean aWD) {
+		super.AWD = false;
+	}
 
 }

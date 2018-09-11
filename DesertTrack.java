@@ -1,4 +1,4 @@
-/* Marcus Tang 10086730 March 27th, 2015
+/* Marcus Tang 10086730 Sept 11, 2018
 This is another child class of the class Track. It takes in a Sports car object, a child of the Car class, and places it in the array based on certain conditions. 
 */
 import java.util.Random;
